@@ -1,0 +1,51 @@
+# Project: PCRepair
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = PCRepair_private.res
+OBJ  = main.o Tarefas.o HTTP.o Registro.o Sistema.o Rede.o Agente.o $(RES)
+LINKOBJ  = main.o Tarefas.o HTTP.o Registro.o Sistema.o Rede.o Agente.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -L"C:/Dev-Cpp/lib"   -s 
+INCS =  -I"C:/Dev-Cpp/include"  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I"C:/Dev-Cpp/include" 
+BIN  = PCRepair.exe
+CXXFLAGS = $(CXXINCS)   -fexpensive-optimizations -O3
+CFLAGS = $(INCS)   -fexpensive-optimizations -O3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before PCRepair.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "PCRepair.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Tarefas.o: Tarefas.cpp
+	$(CPP) -c Tarefas.cpp -o Tarefas.o $(CXXFLAGS)
+
+HTTP.o: HTTP.cpp
+	$(CPP) -c HTTP.cpp -o HTTP.o $(CXXFLAGS)
+
+Registro.o: Registro.cpp
+	$(CPP) -c Registro.cpp -o Registro.o $(CXXFLAGS)
+
+Sistema.o: Sistema.cpp
+	$(CPP) -c Sistema.cpp -o Sistema.o $(CXXFLAGS)
+
+Rede.o: Rede.cpp
+	$(CPP) -c Rede.cpp -o Rede.o $(CXXFLAGS)
+
+Agente.o: Agente.cpp
+	$(CPP) -c Agente.cpp -o Agente.o $(CXXFLAGS)
+
+PCRepair_private.res: PCRepair_private.rc 
+	$(WINDRES) -i PCRepair_private.rc --input-format=rc -o PCRepair_private.res -O coff 

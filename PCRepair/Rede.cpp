@@ -1,0 +1,19 @@
+///////////////////////////////////////////////////////////
+//  Rede.cpp
+//  Implementation of the Class Rede
+//  Created on:      15-dez-2011 23:46:55
+//  Original author: neriberto
+///////////////////////////////////////////////////////////
+
+#include "Rede.h"
+
+
+Rede::Rede(){
+
+}
+
+
+
+Rede::~Rede(){
+
+}
